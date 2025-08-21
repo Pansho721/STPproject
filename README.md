@@ -1,31 +1,34 @@
-## STPproject
+### STPproject
+
+## clarification
 This is a group college project, all the initial work is from my teammates and me, the initials two commits in this repositoriy  are made by the group, all the rest by me.
 
+## Description
+The Order-taking System (STP in Spanish) is a visual help to order on a Restaurant, it implement a display menu and an order cart, also it have a administer settings for the menu.   
+
+## Funcionality:
+At root you can select what are you: Client or Administrator.
+
+For Administrator you have to Login, the creation of a Admin have to be done at shell with Django.
+From Administrator you can create a new dish or modify an existing dish.
+
+For Client you don't have to login.
+From Client you can see the menu, add dishes to the cart, clear the cart and send an order.
 
 
-El sistema de toma de pedidos (STP) busca implementar una ayuda visual a la hora de pedir comida en un local, implementando una lista de platos los cuales pueden ser mostrados y así asegurar que al cliente no se olvide de pedir nada.
+Once the order is delivered, you can see the total price and add a review for the dishes ordered.
 
-## Funcionalidad:
+## How to run the server at localhost:
 
-En la primera vista se selecciona uno de los roles de usuario: cliente o administrador.
-Desde la vista del administrador se pueden crear o modificar platos del menú.
-Desde la vista del cliente se muestra el menú con los platos agregados por el administrador, donde se puede agregar una cantidad arbitraria de cada plato, junto con mostrar sus ingredientes, su precio y una lista de reseñas con la calificación promedio del plato.
-
-Una vez entregado el pedido, se puede ver todo lo agregado junto con el precio total, además de una opción para agregar una reseña a cada uno de los platos incluidos en el pedido.
-
-
-## Como runnear el server:
-
-Desde el directorio raíz del proyecto (2025-1-CC4401-grupo-7), ubicarse en la carpeta padre con el siguiente comando:
+From the repository root (STPproject), you have to move at the "STP" directory.
 
 > cd STP
 
-Una vez ahí, en la consola se debe escribir:
+Once there, you have to write
 
 > python manage.py runserver
 
-y se podrá acceder a la view principal de la página a través del link:
+Now you can see the root view of the project by the following localhost direction.
 
 http://127.0.0.1:8000
 
-## Puntos Importantes:
