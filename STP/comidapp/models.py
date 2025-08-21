@@ -1,5 +1,4 @@
 from django.db import models  # Importación del módulo de modelos de Django
-from Clases import Admin, Cliente, Pedido, Plato
 
 # Modelo que representa a un cliente y su pedido
 class Cliente(models.Model):
