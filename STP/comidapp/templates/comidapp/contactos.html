@@ -1,0 +1,16 @@
+{% extends 'template.html' %}
+
+{% block title %}Contactos{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <h2>Contactos del Grupo</h2>
+    <ul class="list-group">
+        {% for c in contactos %}
+            <li class="list-group-item">
+                {{ c.nombre }} — <a href="https://t.me/{{ c.telegram|slice:'1:' }}" target="_blank">{{ c.telegram }}</a>
+            </li>
+        {% endfor %}
+    </ul>
+</div>
+{% endblock %}

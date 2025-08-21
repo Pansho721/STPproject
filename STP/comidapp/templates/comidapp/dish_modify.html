@@ -1,0 +1,31 @@
+{% extends 'template.html' %}
+
+{% block title %}Editar Plato{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    {% if user.is_authenticated %}
+        <h2 class="mb-4 text-center">Editar Plato</h2>
+
+        <form method="post" class="needs-validation" novalidate>
+            {% csrf_token %}
+            
+            <!-- Renderiza los campos con <p>, usando los estilos definidos en el form -->
+            {{ form.as_p }}
+
+            <div class="d-flex justify-content-between mt-4">
+                <!-- Botón para volver al menú admin -->
+                <a href="{% url 'admin_modify' %}" class="btn btn-secondary">Volver</a>
+
+                <!-- Botón para guardar cambios -->
+                <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+            </div>
+        </form>
+    {% else %}
+        <div class="text-center">
+            <p>Inicia sesión para editar platos.</p>
+            <a href="{% url 'login' %}" class="btn btn-primary">Ir a login</a>
+        </div>
+    {% endif %}
+</div>
+{% endblock %}

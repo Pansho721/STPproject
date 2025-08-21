@@ -1,0 +1,94 @@
+{% extends 'template.html' %}
+
+{% block title %}Pedido Confirmado{% endblock %}
+
+{% block content %}
+<style>
+    body {
+        background-color: white;
+        color: black;
+        font-family: 'Comic Sans MS', cursive, sans-serif;
+        text-align: center;
+    }
+    .pedido-container { margin-top: 50px; }
+    .pedido-box {
+        border: 2px solid black;
+        padding: 20px;
+        margin-top: 20px;
+        max-width: 600px;
+        margin-left: auto;
+        margin-right: auto;
+        background-color: #fff;
+    }
+    .form-resena {
+        margin-top: 15px;
+        padding: 15px;
+        border: 1px dashed #aaa;
+        border-radius: 5px;
+        background-color: #f9f9f9;
+    }
+    .list-group-item {
+        flex-direction: column;
+        align-items: flex-start !important;
+        background-color: white !important;
+        color: black !important;
+        border-color: black !important;
+    }
+</style>
+
+<div class="pedido-container">
+    <h2><strong>PEDIDO REALIZADO <em>CON ÉXITO!!!</em></strong></h2>
+    <p>Estamos cocinando su orden...</p>
+    <p>ID del pedido: <strong>{{ pedido.id }}</strong></p>
+    <img src="https://media.tenor.com/pJaEbhfzhAUAAAAj/club-penguiin-pizza.gif" alt="Cocinando" width="150">
+
+    <div class="pedido-box">
+        <ul class="list-group text-start">
+            {% for item in platos_con_cantidad %}
+            <li class="list-group-item">
+                <div>
+                    <strong>{{ item.plato.name }}</strong><br>
+                    Cantidad: {{ item.cantidad }}<br>
+                    Precio unitario: ${{ item.plato.precio }}<br>
+                    <strong>Total: ${{ item.precio_total }}</strong>
+                </div>
+
+                <!-- Botón para mostrar/ocultar el formulario -->
+                <button class="btn btn-sm btn-outline-dark mt-2" type="button" data-bs-toggle="collapse" data-bs-target="#resena-form-{{ item.plato.id }}" aria-expanded="false" aria-controls="resena-form-{{ item.plato.id }}">
+                    Reseñar
+                </button>
+
+                <!-- Formulario oculto por defecto -->
+                <div class="collapse form-resena w-100 mt-2" id="resena-form-{{ item.plato.id }}">
+                    <h5>Deja tu reseña para {{ item.plato.name }}</h5>
+                    <form method="POST" action="{% url 'client_order' %}">
+                        {% csrf_token %}
+                        <input type="hidden" name="plato_id" value="{{ item.plato.id }}">
+
+                        <div class="mb-2">
+                            {{ form.texto.label_tag }}
+                            {{ form.texto }}
+                        </div>
+                        <div class="mb-3">
+                            {{ form.puntuacion.label_tag }}
+                            {{ form.puntuacion }}
+                        </div>
+
+                        <button type="submit" class="btn btn-primary btn-sm">Enviar Reseña</button>
+                    </form>
+                </div>
+            </li>
+            {% endfor %}
+        </ul>
+
+        <hr>
+        <div class="text-end fw-bold fs-5">
+            Total del pedido: ${{ total_pedido }}
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+{% endblock %}

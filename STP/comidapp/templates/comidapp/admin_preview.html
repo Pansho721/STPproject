@@ -1,0 +1,29 @@
+{% extends 'template.html' %}
+
+{% block title %}Inicio sesión admin{% endblock %}
+
+{% block content %}
+<div class="container" style="margin-top: 2em">
+
+    {% if error %}
+        <div class="alert alert-danger" role="alert">
+            {{ error }}
+        </div>
+    {% endif %}
+
+    <form name="login" method="post">
+        {% csrf_token %}
+        <label for="nombre">Usuario</label><br>
+        <input type="text" name="nombre" id="nombre" required><br>
+
+        <label for="contraseña">Contraseña</label><br>
+        <input type="password" name="contraseña" id="contraseña" required><br>
+
+        <div class="col-12" style="margin-top: 1em;">
+            <button type="submit" class="btn btn-primary">Iniciar sesión</button>
+        </div>
+    </form>
+
+</div>
+{% endblock %}
+ 

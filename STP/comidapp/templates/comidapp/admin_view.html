@@ -1,0 +1,52 @@
+{% extends 'template.html' %}
+
+{% block title %}Menú{% endblock %}
+
+{% block content %}
+<style>
+    .admin-contenedor {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 80vh;
+        font-family: Arial, sans-serif;
+        text-align: center;
+    }
+
+    .admin-contenedor h1 {
+        font-size: 2em;
+        margin-bottom: 50px;
+    }
+
+    .botones {
+        display: flex;
+        justify-content: center;
+        gap: 50px;
+        flex-wrap: wrap;
+    }
+
+    .boton {
+        border: 2px solid black;
+        padding: 10px 20px;
+        font-weight: bold;
+        background-color: white;
+        text-decoration: none;
+        color: black;
+    }
+
+    .boton:hover {
+        background-color: #f0f0f0;
+    }
+</style>
+
+<div class="admin-contenedor">
+    <h1>¡Bienvenidx!</h1>
+
+    <div class="botones">
+        <a href="{% url 'admin_menu' %}" class="boton">Ver menú</a>
+        <a href="{% url 'admin_add' %}" class="boton">Añadir plato</a>
+        <a href="{% url 'admin_modify' %}" class="boton">Modificar menú</a>
+    </div>
+</div>
+{% endblock %}

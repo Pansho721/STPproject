@@ -1,0 +1,12 @@
+.white{
+    color:white;
+    font-weight: 600;
+}
+
+.square-input {
+        width: 3rem;
+        height: 3rem;
+        text-align: center;
+        font-size: 1rem;
+        border-radius: 0.5rem;
+        padding: 0;
