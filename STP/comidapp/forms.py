@@ -98,12 +98,12 @@ class ComentarioForm(forms.ModelForm):
         fields = ['texto', 'puntuacion'] # Campos que el usuario llenará
         widgets = {
             'texto': forms.Textarea(attrs={
-                'class': 'form-control col-6', 
+                'class': 'form-control', 
                 'rows': 3,
                 'placeholder': 'Escribe tu opinión aquí...'
             }),
             'puntuacion': forms.Select(attrs={
-                'class': 'form-select col-2'
+                'class': 'form-select'
             }),
         }
         labels = {

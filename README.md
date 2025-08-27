@@ -1,7 +1,7 @@
 ### STPproject
 
 ## clarification
-This is a group college project, all the initial work is from my teammates and me, the initials two commits in this repositoriy  are made by the group, all the rest by me.
+This is a group university project, all the initial work is from my teammates and me, the initial commit in this repositoriy is made by the group, all the rest by me.
 
 ## Description
 The Order-taking System (STP in Spanish) is a visual help to order on a Restaurant, it implement a display menu and an order cart, also it have a administer settings for the menu.   
@@ -9,7 +9,7 @@ The Order-taking System (STP in Spanish) is a visual help to order on a Restaura
 ## Funcionality:
 At root you can select what are you: Client or Administrator.
 
-For Administrator you have to Login, the creation of a Admin have to be done at shell with Django.
+For Administrator you have to Login, the creation of an Admin have to be done at shell with Django.
 From Administrator you can create a new dish or modify an existing dish.
 
 For Client you don't have to login.
